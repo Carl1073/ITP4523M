@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="nav">
+    <a href="custHome.html">Home</a>
+    <a href="custShopList.html" class="active">Shop List</a>
+    <a href="custOrder.html">Order</a>
+    <a href="custProfile.html">Profile</a>
+    <div class="navRight">
+      <!-- change from a to button in phase 2 -->
+      <a class="login" id="logout" href="index.html">Logout</a>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="overlayDiv" id="createOrderContainer">
+    <div class="formContainer">
+
+      <div class="form">
+        <div class="formDiv">
+          <h2>Create Order</h2>
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Product ID: </div>
+          <input id="proID" value="">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Ordered Quantity: </div>
+          <input id="proQty" value="">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Total Price: </div>
+          <input id="totalPrice" value="" disabled>
+        </div>
+
+        <hr />
+
+        <div class="formDiv">
+          <h2>Fill in Your Information</h2>
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">ID: </div>
+          <input id="custID" value="1" disabled>
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Name: </div>
+          <input id="custName" value="Alex">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Password: </div>
+          <input id="custPw" type="password" value="23456789">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Contact Number: </div>
+          <input id="custTel" value="23456789">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Address: </div>
+          <input id="custAddr" value="4279 Linda Valleys, Apt. 414, 30806, Albamouth, Wyoming, United States">
+        </div>
+
+        <div class="formDiv">
+          <div class="formLabel">Company Name:</div>
+          <input id="custCompany" value="ABC company">
+        </div>
+
+        <div class="formDiv container">
+          <button class="changeCustInfo" onclick="confirmOrder()">Confirm</button>
+          <button class="changeCustInfo changeCancel" onclick="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>This is shop list.</h2>
+  <div class="containerSort">
+    <label for="sort" class="formLabel">Sorted by:
+      <select class="formSelect" id="sort" name="fruits">
+        <option value="priceAsc">Price(low to high)</option>
+        <option value="priceDesc">Price(high to low)</option>
+        <option value="nameAsc">Name(low to high)</option>
+        <option value="nameDesc">Name(high to low)</option>
+        <option value="idAsc">ID(low to high)</option>
+        <option value="idDesc">ID(high to low)</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="category">
+    <p>Category</p>
+    <ul>
+      <li>Type 1</li>
+      <li>Type 2</li>
+      <li>Type 3</li>
+      <li>Type 4</li>
+      <li>Type 5</li>
+    </ul>
+  </div>
+
+  <div class="productList">
+    <div class="productSquare" id="product1">
+      <img class="productImg" src="Images/product1.jpeg" alt="product1" />
+      <div class="productName">Product 1</div>
+      <div class="desc">This is Product 1</div>
+      <div class="productCost">$20.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product1Qty" type="number" value="2">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+    <div class="productSquare" id="product2">
+      <img class="productImg" src="Images/product2.jpeg" alt="product2" />
+      <div class="productName">Product 2</div>
+      <div class="desc">This is Product 2</div>
+      <div class="productCost">$50.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product2Qty" type="number">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+    <div class="productSquare" id="product3">
+      <img class="productImg" src="Images/product3.jpeg" alt="product3" />
+      <div class="productName">Product 3</div>
+      <div class="desc">This is Product 3</div>
+      <div class="productCost">$30.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product3Qty" type="number">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+    <div class="productSquare" id="product4">
+      <img class="productImg" src="Images/product4.jpg" alt="product4" />
+      <div class="productName">Product 4</div>
+      <div class="desc">This is Product 4</div>
+      <div class="productCost">$50.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product4Qty" type="number">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+    <div class="productSquare" id="product5">
+      <img class="productImg" src="Images/product5.jpeg" alt="product5" />
+      <div class="productName">Product 5</div>
+      <div class="desc">This is Product 5</div>
+      <div class="productCost">$50.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product5Qty" type="number">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+    <div class="productSquare" id="product6">
+      <img class="productImg" src="Images/product6.jpeg" alt="product6" />
+      <div class="productName">Product 6</div>
+      <div class="desc">This is Product 6</div>
+      <div class="productCost">$50.0</div>
+      <div class="productBuy">
+        <img class="minus" src="Images/minus.png" alt="minus" onclick="minus()" />
+        <input class="productQty" id="product6Qty" type="number">
+        <img class="plus" src="Images/plus.png" alt="plus" onclick="plus()" />
+        <button class="buy" onclick="addToCart(this.parentElement.parentElement.id)">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="custShopList.js"></script>
+
+</html>

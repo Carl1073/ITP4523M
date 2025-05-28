@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="nav">
+    <a href="staffHome.html">Home</a>
+    <a href="staffItem.html">Item</a>
+    <a href="staffMaterial.html">Material</a>
+    <a href="staffOrderList.html" class="active">Order</a>
+    <a href="staffReport.html">Report</a>
+    <a href="staffProfile.html">Profile</a>
+    <a class="login" id="logout" href="index.html" onclick="logoutStaff()">Logout</a>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="overlayDiv" id="detailContainer">
+    <button class="overlayDivDelete" id="detailDelete" onclick="closeDetail()">&#10005</button>
+    <div class="form">
+      <div class="formDiv">
+        <h2>Order Detail</h2>
+      </div>
+
+      <img id="detailImg" src="Images/test.jpeg" alt="Product Image">
+
+      <div class="formDiv">
+        <div class="formLabel">Order ID: </div>
+        <div class="formInfo" id="orderID">2</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Order Date: </div>
+        <div class="formInfo" id="orderDate">2025-03-26</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Product ID: </div>
+        <div class="formInfo" id="proID">2</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Order Quantity: </div>
+        <input class="formInfo" id="proQty" value="2"></input>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Total Order Amount: </div>
+        <div class="formInfo" id="proCost">100</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Customer’s Contact Name: </div>
+        <div class="formInfo" id="custName">Alex</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Customer’s Contact Number: </div>
+        <div class="formInfo" id="custTel">2345-6789</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Delivery Address: </div>
+        <div class="formInfo" id="custAddr">4279 Linda Valleys, Apt. 414, 30806, Albamouth, Wyoming, United States</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Delivery Date:</div>
+        <div class="formInfo" id="deliverDate">2025-04-25</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Order Status:</div>
+        <div class="formInfo" id="orderStatus">Open</div>
+      </div>
+
+      <hr />
+      <div class="formDiv">
+        <h2>Material Used in the Product</h2>
+      </div>
+
+      <div class="formDiv">
+        <table class="table" id="materialTable" border="4" width="100%">
+          <tr>
+            <th>Name</th>
+            <th>Used materials</th>
+            <th>Reserved Quantity</th>
+            <th>Physical Quantity</th>
+            <th>Available Quantity</th>
+            <th>Unit </th>
+            <th>Low Stock Alert</th>
+          </tr>
+          <tr class="materialRow" id="materialRow1">
+            <td class="materialName">glass</td>
+            <td class="usedMaterial">40</td>
+            <td><input class="tableInput reservedMaterial" id="reserved1" value="50"></td>
+            <td>1000</td>
+            <td>800</td>
+            <td>g</td>
+            <td>500</td>
+          </tr>
+          <tr class="materialRow" id="materialRow2">
+            <td class="materialName">wool</td>
+            <td class="usedMaterial">100</td>
+            <td><input class="tableInput reservedMaterial" id="reserved2" value="100"></td>
+            <td>1000</td>
+            <td>500</td>
+            <td>g</td>
+            <td>500</td>
+          </tr>
+          <tr class="materialRow" id="materialRow3">
+            <td class="materialName">plastic</td>
+            <td class="usedMaterial">120</td>
+            <td><input class="tableInput reservedMaterial" id="reserved3" value="120"></td>
+            <td>5000</td>
+            <td>5000</td>
+            <td>g</td>
+            <td>500</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="profileDiv container">
+        <button class="changeCustInfo" onclick="updateOrder()">Update</button>
+        <button class="changeCustInfo" onclick="acceptOrder()">Accept</button>
+        <button class="changeCustInfo changeCancel" onclick="rejectOrder()">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tableAboveContainer">
+    <div>
+      <h2>Order List</h2>
+    </div>
+  </div>
+  <table class="table" border="4" width="80%" id="orderTable">
+    <tr>
+      <th>Order ID</th>
+      <th>Date</th>
+      <th>Product ID</th>
+      <th>Quantity</th>
+      <th>Total Cost(HK$)</th>
+      <th>Customer ID</th>
+      <th>Delivery Date</th>
+      <th>Status</th>
+      <th>Detail</th>
+    </tr>
+    <tr id="order1">
+      <td>1</td>
+      <td>2025-03-16</td>
+      <td>1</td>
+      <td>2</td>
+      <td>40</td>
+      <td>1</td>
+      <td id="order1Date">2025-03-25</td>
+      <td id="order1Status" class="deliver">Delivered</td>
+      <td><button onclick="detail(this.parentElement.parentElement.id)">Detail</button></td>
+    </tr>
+    <tr id="order2">
+      <td>2</td>
+      <td>2025-03-26</td>
+      <td>2</td>
+      <td>2</td>
+      <td>100</td>
+      <td>1</td>
+      <td id="order2Date">2025-04-25</td>
+      <td id="order2Status" class="pend">Pending</td>
+      <td><button onclick="detail(this.parentElement.parentElement.id)">Detail</button></td>
+    </tr>
+    <tr id="order3">
+      <td>3</td>
+      <td>2025-03-29</td>
+      <td>3</td>
+      <td>3</td>
+      <td>90</td>
+      <td>1</td>
+      <td id="order3Date">2025-04-27</td>
+      <td id="order3Status" class="pend">Pending</td>
+      <td><button onclick="detail(this.parentElement.parentElement.id)">Detail</button></td>
+    </tr>
+    <tr id="order4">
+      <td>4</td>
+      <td>2025-03-29</td>
+      <td>3</td>
+      <td>4</td>
+      <td>120</td>
+      <td>2</td>
+      <td id="order4Date">2025-04-27</td>
+      <td id="order4Status" class="pend">Pending</td>
+      <td><button onclick="detail(this.parentElement.parentElement.id)">Detail</button></td>
+    </tr>
+  </table>
+
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="staffOrderList.js"></script>
+
+</html>

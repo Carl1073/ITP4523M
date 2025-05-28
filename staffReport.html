@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="staffReport.css">
+</head>
+
+<body onload="showChart()">
+  <div class="nav">
+    <a href="staffHome.html">Home</a>
+    <a href="staffItem.html">Item</a>
+    <a href="staffMaterial.html">Material</a>
+    <a href="staffOrderList.html">Order</a>
+    <a href="staffReport.html" class="active">Report</a>
+    <a href="staffProfile.html">Profile</a>
+    <a class="login" id="logout" href="index.html" onclick="logoutStaff()">Logout</a>
+  </div>
+  <h2>This is report list for staff.</h2>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="overlayDiv" id="imgContainer">
+    <button class="overlayDivDelete" id="ImgDelete" onclick="closeImg()">&#10005</button>
+    <img id="Img" src="Images/test.jpeg" alt="Product Image">
+  </div>
+
+  <table class="table" border="4" width="70%" id="orderTable">
+    <tr>
+      <th>Order ID</th>
+      <th>Product Name</th>
+      <th>Product Image</th>
+      <th>Quantity</th>
+      <th>Sales amount (HK$)</th>
+    </tr>
+    <tr id="order1">
+      <td>1</td>
+      <td id="product1">Product 1</td>
+      <td><button onclick="showImage(this.parentElement.parentElement.id)">Show</button></td>
+      <td>2</td>
+      <td>40</td>
+    </tr>
+    <tr id="order2">
+      <td>2</td>
+      <td id="product2">Product 2</td>
+      <td><button onclick="showImage(this.parentElement.parentElement.id)">Show</button></td>
+      <td>2</td>
+      <td>100</td>
+    </tr>
+    <tr id="order3">
+      <td>3</td>
+      <td id="product3">Product 3</td>
+      <td><button onclick="showImage(this.parentElement.parentElement.id)">Show</button></td>
+      <td>3</td>
+      <td>90</td>
+    </tr>
+    <tr id="order4">
+      <td>4</td>
+      <td id="product3">Product 3</td>
+      <td><button onclick="showImage(this.parentElement.parentElement.id)">Show</button></td>
+      <td>4</td>
+      <td>120</td>
+    </tr>
+  </table>
+
+  <canvas id="salesChart"></canvas>
+
+
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="staffReport.js"></script>
+
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="nav">
+      <a href="staffHome.html">Home</a>
+      <a href="staffItem.html">Item</a>
+      <a href="staffMaterial.html">Material</a>
+      <a href="staffOrderList.html">Order</a>
+      <a href="staffReport.html">Report</a>
+      <a href="staffProfile.html" class="active">Profile</a>
+      <a class="login" id="logout" href="index.html" onclick="logoutStaff()">Logout</a>
+    </div>
+    <h2>This is profile for staff.</h2>
+
+    <div class="formContainer">
+
+      <div class="form">
+        <div class="formDiv">
+          <h2>Your Profile</h2>
+        </div>
+  
+        <div class="formDiv">
+          <div class="formLabel">ID: </div>
+          <div class="formInfo" id="staffID">1</div>
+        </div>
+  
+        <div class="formDiv">
+          <div class="formLabel">Name: </div>
+          <div class="formInfo" id="staffName">Betty</div>
+        </div>
+  
+        <div class="formDiv">
+          <div class="formLabel">Contact Number: </div>
+          <div class="formInfo" id="staffTel">2345-6789</div>
+        </div>
+  
+        <div class="formDiv">
+          <div class="formLabel">Role: </div>
+          <div class="formInfo" id="staffAdd">Manager</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="header.js"></script>
+  <script src="data.js"></script>
+
+</html>

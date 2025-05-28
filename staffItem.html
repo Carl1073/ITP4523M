@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Insert</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="nav">
+        <a href="staffHome.html">Home</a>
+        <a href="staffItem.html" class="active">Item</a>
+        <a href="staffMaterial.html">Material</a>
+        <a href="staffOrderList.html">Order</a>
+        <a href="staffReport.html">Report</a>
+        <a href="staffProfile.html">Profile</a>
+        <a class="login" id="logout" href="index.html" onclick="logoutStaff()">Logout</a>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="overlayDiv" id="detailContainer">
+        <button class="overlayDivDelete" id="detailDelete" onclick="hideDetail()">&#10005</button>
+        <div class="form">
+            <div class="formDiv">
+                <h2>Detail</h2>
+            </div>
+
+            <img id="detailImg" src="Images/test.jpeg" alt="Product Image">
+
+            <div class="formDiv">
+                <div class="formLabel">Product ID: </div>
+                <input id="detailID" value="" disabled>
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product Name: </div>
+                <input id="detailName" value="" disabled>
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product Description: </div>
+                <input id="detailDesc" value="This is Product " disabled>
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Single Product Cost: </div>
+                <input id="detailCost" value="" disabled>
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">In Delivery: </div>
+                <input id="detailDelivery" value="" disabled>
+            </div>
+
+            <hr />
+            <div class="formDiv">
+                <h2>Material Used in the Product</h2>
+            </div>
+
+            <div class="materialContainer" id="materialContainer">
+                <div class="materialForm">
+                    <div class="materialFormDiv">
+                        <div class="formLabel">Material ID: </div>
+                        <input class="matID" value="1" disabled>
+                    </div>
+
+                    <div class="materialFormDiv">
+                        <div class="formLabel">Material Quantity: </div>
+                        <input class="matQty" value="90" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlayDiv" id="insertContainer">
+        <div class="form">
+            <div class="formDiv">
+                <h2>Insert Item</h2>
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product ID: </div>
+                <input id="proID" value="9">
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product Name: </div>
+                <input id="proName" value="Product 9">
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product Description: </div>
+                <input id="proDesc" value="This is Product 9">
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Product Image: (accept jpg, jpeg, png only)</div>
+                <input id="proImg" type="file" accept=".jpg, .jpeg, .png">
+            </div>
+
+            <div class="formDiv">
+                <div class="formLabel">Single Product Cost: </div>
+                <input id="proCost" value="90">
+            </div>
+
+            <hr />
+            <div class="formDiv">
+                <h2>Material Used in the Product</h2>
+                <p>* The material will be inserted only if both Material ID and Material Quantity are input and valid.
+                </p>
+                <button onclick="materialFormAdd()">Add Type of Material</button>
+            </div>
+
+            <div class="materialContainer" id="materialContainer">
+                <div class="materialForm">
+                    <div class="materialFormDiv">
+                        <div class="formLabel">Material ID: </div>
+                        <input class="matID" value="1">
+                    </div>
+
+                    <div class="materialFormDiv">
+                        <div class="formLabel">Material Quantity: </div>
+                        <input class="matQty" value="90">
+                    </div>
+                    <button class="materialRemove" onclick="materialFormDelete(this.parentElement)">Remove</button>
+                </div>
+            </div>
+
+            <div class="profileDiv container">
+                <button class="changeCustInfo" onclick="confirmAdd()">Confirm</button>
+                <button class="changeCustInfo changeCancel" onclick="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tableAboveContainer">
+        <div>
+            <h2>Product List</h2>
+        </div>
+        <div>
+            <button id="productInsert" onclick="productInsert()">Insert Product</button>
+        </div>
+    </div>
+    <table class="table" id="productTable" border="4" width="80%">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Single Product Cost(HK$)</th>
+            <th>In Delivery</th>
+            <th>Detail</th>
+            <th>Delete</th>
+        </tr>
+        <tr id="product1">
+            <td id="product1ID">1</td>
+            <td id="product1Name">Product 1</td>
+            <td id="product1Cost">20</td>
+            <td id="product1DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product2">
+            <td id="product2ID">2</td>
+            <td id="product2Name">Product 2</td>
+            <td id="product2Cost">50</td>
+            <td id="product2DeliveryQty">4</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product3">
+            <td id="product3ID">3</td>
+            <td id="product3Name">Product 3</td>
+            <td id="product3Cost">30</td>
+            <td id="product3DeliveryQty">5</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product4">
+            <td id="product4ID">4</td>
+            <td id="product4Name">Product 4</td>
+            <td id="product4Cost">50</td>
+            <td id="product4DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product5">
+            <td id="product5ID">5</td>
+            <td id="product5Name">Product 5</td>
+            <td id="product5Cost">50</td>
+            <td id="product5DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product6">
+            <td id="product6ID">6</td>
+            <td id="product6Name">Product 6</td>
+            <td id="product6Cost">50</td>
+            <td id="product6DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product7">
+            <td id="product7ID">7</td>
+            <td id="product7Name">Product 7</td>
+            <td id="product7Cost">50</td>
+            <td id="product7DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+
+        <tr id="product8">
+            <td id="product8ID">8</td>
+            <td id="product8Name">Product 8</td>
+            <td id="product8Cost">50</td>
+            <td id="product8DeliveryQty">0</td>
+            <td><button onclick="showDetail(this.parentElement.parentElement.id)">Detail</button></td>
+            <td><button onclick="deleteProduct(this.parentElement.parentElement.id)">Delete</button></td>
+        </tr>
+    </table>
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="staffItem.js"></script>
+
+</html>

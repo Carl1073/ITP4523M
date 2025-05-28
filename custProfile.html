@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="nav">
+    <a href="custHome.html">Home</a>
+    <a href="custShopList.html">Shop List</a>
+    <a href="custOrder.html">Order</a>
+    <a href="custProfile.html" class="active">Profile</a>
+    <div class="navRight">
+      <!-- change from a to button in phase 2 -->
+      <a class="login" id="logout" href="index.html">Logout</a>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="overlayDiv" id="updateCustContainer">
+    <div class="formContainer">
+      <div class="form">
+        <div class="formDiv">
+          <h2>Profile Update</h2>
+        </div>
+  
+        <label class="formCheckboxLabel">
+          <input type="checkbox" id="pwCheckbox" onclick="pwCheckbox()"> Change Password
+        </label>
+
+        <div class="formDiv" id="oldPasswordDiv">
+          <div class="formLabel">Old Password </div>
+          <input placeholder="Old Password" type="password" id="oldPassword">
+        </div>
+  
+        <div class="formDiv" id="newPasswordDiv">
+          <div class="formLabel">New Password: </div>
+          <input placeholder="New Password" type="password" id="newPassword">
+        </div>
+  
+        <div class="formDiv" id="newPasswordConfirmDiv">
+          <div class="formLabel">Confirm New Password: </div>
+          <input placeholder="New Password" type="password" id="newPasswordConfirm">
+        </div>
+
+        <label class="formCheckboxLabel">
+          <input type="checkbox" id="telCheckbox" onclick="telCheckbox()"> Change Contact Number
+        </label>
+
+        <div class="formDiv" id="telDiv">
+          <div class="formLabel">New Contact Number: </div>
+          <input placeholder="New Contact Number" type="number" id="newTel">
+        </div>
+
+        <label class="formCheckboxLabel">
+          <input type="checkbox" id="companyCheckbox" onclick="companyCheckbox()"> Change Customer Address
+        </label>
+        <div class="formDiv" id="companyDiv">
+          <div class="formLabel">New Customer Address: </div>
+          <input placeholder="New Customer Address" type="text" id="newCompany">
+        </div>
+  
+        <div class="profileDiv container">
+          <button class="changeCustInfo" onclick="confirmChange()">Confirm</button>
+          <button class="changeCustInfo changeCancel" onclick="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="formContainer">
+
+    <div class="form">
+      <div class="formDiv">
+        <h2>Your Profile</h2>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">ID: </div>
+        <div class="formInfo" id="custID">1</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Name: </div>
+        <div class="formInfo" id="custName">Alex</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Contact Number: </div>
+        <div class="formInfo" id="custTel">2345-6789</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Address: </div>
+        <div class="formInfo" id="custAdd">4279 Linda Valleys, Apt. 414, 30806, Albamouth, Wyoming, United States</div>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Company Name:</div>
+        <div class="formInfo" id="custCompany">ABC company</div>
+      </div>
+
+      <div class="formDiv container">
+        <a class="changeCustInfo" onclick="updateCustInfo()">Change information</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="custProfile.js"></script>
+
+</html>

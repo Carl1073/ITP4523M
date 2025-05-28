@@ -1,0 +1,390 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(138deg, rgba(148, 169, 255, 1), rgba(148, 228, 255, 1));
+    width: 100%;
+    background-attachment: fixed;
+    /* Keep the background fixed */
+    background-size: cover;
+    /* Cover the entire viewport */
+    font-family: "Century Gothic", "Lato", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* basic button design */
+button {
+    padding: 4px;
+    margin: 4px;
+    font-family: "Century Gothic", "Lato", sans-serif;
+    cursor: pointer;
+}
+
+.category {
+    float: left;
+    width: 15%;
+    border: 1px solid black;
+    margin-right: 1%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: white;
+    z-index: 10;
+}
+
+.nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    color: black;
+    letter-spacing: 0.1rem;
+    transition: all 0.5s ease;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.nav a:hover {
+    color: white;
+    background: rgba(102, 177, 241, 0.8);
+}
+
+.nav .active {
+    color: white;
+    background: rgba(68, 150, 223, 0.8);
+}
+
+.navRight {
+    height: inherit;
+}
+
+#logout {
+    position: absolute;
+    right: 10px;
+    height: inherit;
+    color: chocolate;
+    background-color: #f6f6f6;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#logout:hover {
+    color: white;
+    background: #f60000cc;
+    transition: all 0.5s ease;
+}
+
+.productList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 80%;
+}
+
+.productSquare {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 25%;
+    border: 1px solid rgba(80, 157, 223, 0.8);
+    margin: 0px;
+}
+
+.productSquare div {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+
+.productList {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.productImg {
+    width: 95%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.price {
+    width: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.price .origin fieldset {
+    width: 400px;
+    border: black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.detail,
+.plus,
+.minus {
+    width: 24px;
+}
+
+.detail:hover,
+.plus:hover,
+.minus:hover {
+    background-color: rgba(103, 207, 255, 0.5);
+}
+
+.detail:active,
+.plus:active,
+.minus:active {
+    background-color: rgba(48, 157, 207, 0.9);
+}
+
+.productQty {
+    width: 60px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark background */
+    display: none;
+    /* Hidden by default */
+    z-index: 1;
+    /* Behind the popup */
+}
+
+/* table */
+.table {
+    margin: 20px auto;
+}
+
+th {
+    background-color: rgb(73, 146, 255);
+}
+
+.tableAboveContainer,
+.table {
+    margin: 20px auto;
+}
+
+.tableAboveContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tableAboveContainer button {
+    margin: 20px 0px;
+}
+
+#productInsert {
+    position: relative;
+}
+
+#productInsert:hover {
+    background-color: rgba(186, 186, 186, 0.5);
+}
+
+.lowStock {
+    background-color: rgba(255, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+/* overlay div */
+
+#detailImg {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.overlayDiv {
+    position: absolute;
+    left: 22%;
+    top: 70px;
+    display: none;  /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: #8ad1ff;
+}
+
+.overlayDiv .form {
+    margin: 0px;
+}
+
+.overlayDivDelete {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: transparent;
+    border: none;
+    z-index: 3;
+}
+
+.overlayDivDelete:hover {
+    background-color: #4c8cb7;
+}
+
+/* for order list */
+.approve {
+    color: #1dec1d;
+}
+
+.deliver {
+    color: #00c100;
+}
+
+.pend {
+    color: #afaa3e
+}
+
+.reject {
+    color: #ff0000;
+}
+
+/* for form */
+.formContainer,
+.container,
+.materialContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formAboveContainer{
+    margin: auto;
+    width: 700px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.form {
+    position: relative;
+    margin: 10px 0px;
+    width: 700px;
+    border: 1px solid black;
+}
+
+.formDiv {
+    margin: 30px 20px;
+}
+
+.formLabel {
+    width: 100%;
+}
+
+.formInfo {
+    width: fit-content;
+    margin: 4px 0px;
+    border-bottom: 1px solid black;
+}
+
+.form input {
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
+}
+
+.table .tableInput{
+    width: 100%;
+    padding: 0px;
+}
+
+.formCheckboxLabel {
+    display: block;
+    margin: 8px 20px;
+}
+
+.form input[type="checkBox"] {
+    width: auto;
+}
+
+.form hr {
+    border-color: grey;
+    width: 80%;
+    margin: auto;
+}
+
+.materialContainer {
+    flex-direction: column;
+}
+
+.materialForm {
+    display: flex;
+    width: 100%;
+    flex-direction: row wrap;
+}
+
+.materialFormDiv {
+    margin: 30px 20px;
+    width: 35%;
+}
+
+.materialRemove {
+    position: relative;
+    top: 25px;
+    padding: 6px;
+    height: 35px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+}
+
+.materialRemove:hover {
+    background-color: rgba(200, 0, 0, 0.9);
+    transition: background-color 0.3s ease;
+}
+
+.changeCustInfo {
+    display: inline;
+    text-align: center;
+    border: none;
+    font-size: large;
+    width: 150px;
+    padding: 8px;
+    margin: 4px 20px;
+    background: linear-gradient(146deg, rgba(85, 252, 168, 1) 0%, rgba(173, 255, 181, 1) 100%);
+}
+
+.changeCancel {
+    background: linear-gradient(146deg, rgb(255, 129, 98) 0%, rgb(225, 77, 77) 100%);
+}
+
+
+/* responsive to screen less than 600px */
+@media screen and (max-width: 1000px) {
+    .productSquare {
+        width: 50%;
+    }
+}
+
+/* to control to class to be appear or not */
+.displayNone {
+    display: none;
+}

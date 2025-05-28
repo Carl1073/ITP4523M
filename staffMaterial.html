@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="nav">
+    <a href="staffHome.html">Home</a>
+    <a href="staffItem.html">Item</a>
+    <a href="staffMaterial.html" class="active">Material</a>
+    <a href="staffOrderList.html">Order</a>
+    <a href="staffReport.html">Report</a>
+    <a href="staffProfile.html">Profile</a>
+    <a class="login" id="logout" href="index.html" onclick="logoutStaff()">Logout</a>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div class="overlayDiv" id="insertContainer">
+    <button class="overlayDivDelete" id="insertDelete" onclick="hideInsert()">&#10005</button>
+    <div class="form">
+      <div class="formDiv">
+        <h2>Insert</h2>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Material ID: </div>
+        <input id="insertID" value="6" disabled>
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Material Name: </div>
+        <input id="insertName" value="wool2">
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Physical Quantity: </div>
+        <input id="insertQty" value="4000">
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Unit: </div>
+        <input id="insertUnit" value="g">
+      </div>
+
+      <div class="formDiv">
+        <div class="formLabel">Reorder Level: </div>
+        <input id="insertRol" value="500">
+      </div>
+
+      <div class="profileDiv container">
+        <button class="changeCustInfo" onclick="confirmAdd()">Confirm</button>
+        <button class="changeCustInfo changeCancel" onclick="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div class="tableAboveContainer">
+    <div>
+      <h2>Material List</h2>
+    </div>
+    <div>
+      <button id="materialInsert" onclick="materialInsert()">Insert Material</button>
+    </div>
+  </div>
+  <table id="materialTable" class="table" border="4" width="80%">
+    <tr>
+      <th>Material ID</th>
+      <th>Material Name</th>
+      <th>Physical Quantity</th>
+      <th>Reserved Quantity</th>
+      <th>Reorder Level</th>
+      <th>Unit</th>
+      <th>Restock</th>
+    </tr>
+    <tr id="material1">
+      <td id="material1ID">1</td>
+      <td id="material1Name">glass</td>
+      <td id="material1Qty">1000</td>
+      <td id="material1Rqty">200</td>
+      <td id="material1Rol">500</td>
+      <td id="material1Unit">g</td>
+      <td><button onclick="restockMaterial(this.parentElement.parentElement.id)">Restock</button></td>
+    </tr>
+
+    <tr id="material2">
+      <td id="material2ID">2</td>
+      <td id="material2Name">steel</td>
+      <td id="material2Qty">1000</td>
+      <td id="material2Rqty">300</td>
+      <td id="material2Rol">500</td>
+      <td id="material2Unit">g</td>
+      <td><button onclick="restockMaterial(this.parentElement.parentElement.id)">Restock</button></td>
+    </tr>
+
+    <tr id="material3">
+      <td id="material3ID">3</td>
+      <td id="material3Name">wool</td>
+      <td id="material3Qty">1000</td>
+      <td id="material3Rqty">500</td>
+      <td id="material3Rol">500</td>
+      <td id="material3Unit">g</td>
+      <td><button onclick="restockMaterial(this.parentElement.parentElement.id)">Restock</button></td>
+    </tr>
+
+    <tr id="material4">
+      <td id="material4ID">4</td>
+      <td id="material4Name">plastic</td>
+      <td id="material4Qty">5000</td>
+      <td id="material4Rqty">0</td>
+      <td id="material4Rol">500</td>
+      <td id="material4Unit">g</td>
+      <td><button onclick="restockMaterial(this.parentElement.parentElement.id)">Restock</button></td>
+    </tr>
+
+    <tr id="material5" class="lowStock">
+      <td id="material5ID">5</td>
+      <td id="material5Name">paper</td>
+      <td id="material5Qty">1000</td>
+      <td id="material5Rqty">900</td>
+      <td id="material5Rol">500</td>
+      <td id="material5Unit">g</td>
+      <td><button onclick="restockMaterial(this.parentElement.parentElement.id)">Restock</button></td>
+    </tr>
+  </table>
+</body>
+<script src="header.js"></script>
+<script src="data.js"></script>
+<script src="staffMaterial.js"></script>
+
+</html>

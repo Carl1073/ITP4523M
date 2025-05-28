@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="screen">
+      <div class="screenContent">
+        <form class="login">
+          <h2>Smile & Sunshine Toy Co. Ltd</h2>
+          <div class="loginField">
+            <img class="loginIcon" src="Images/person.png"></img>
+            <input type="text" id="username" class="loginInput" placeholder="Username">
+          </div>
+
+          <div class="loginField">
+            <img class="loginIcon" src="Images/lock.png"></img>
+            <input type="password" id="password" class="loginInput" placeholder="Password">
+          </div>
+
+          <!-- change from a to button in phase 2 -->
+          <a class="loginSubmit" onclick="custLogin()">
+            <span class="buttonText">Login As Customer</span>
+            <img class="buttonIcon" src="Images/chevron right.png" />
+          </a>
+
+          <a class="loginSubmit" onclick="staffLogin()">
+            <span class="buttonText">Login As Staff</span>
+            <img class="buttonIcon" src="Images/chevron right.png" />
+          </a>
+        </form>
+      </div>
+      <div class="screenBackground">
+        <span class="screenBackgroundShape screenBackgroundShape4"></span>
+        <span class="screenBackgroundShape screenBackgroundShape3"></span>
+        <span class="screenBackgroundShape screenBackgroundShape2"></span>
+        <span class="screenBackgroundShape screenBackgroundShape1"></span>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="login.js"></script>
+
+</html>
